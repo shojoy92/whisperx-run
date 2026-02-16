@@ -111,6 +111,7 @@ error_log = []
 def run(job):
     job_id     = job["id"]
     job_input  = job["input"]
+    output_dict = {}
 
     # ------------- validate basic schema ----------------------------
     validated = validate(job_input, INPUT_VALIDATIONS)
@@ -213,7 +214,8 @@ def run(job):
 
     return output_dict
 
-runpod.serverless.start({"handler": run})
+if __name__ == "__main__":
+    runpod.serverless.start({"handler": run})
 
 
 #     embeddings = {} # ensure the name is always bound
