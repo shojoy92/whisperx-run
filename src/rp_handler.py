@@ -109,8 +109,8 @@ def cleanup_job_files(job_id, jobs_directory='/jobs'):
 # --------------------------------------------------------------------
 error_log = []
 def run(job):
-    job_id     = job["id"]
-    job_input  = job["input"]
+    job_id     = job.get("id", "local-test-job")
+    job_input  = job.get("input", {})
     output_dict = {}
 
     # ------------- validate basic schema ----------------------------
