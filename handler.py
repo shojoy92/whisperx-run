@@ -3,4 +3,8 @@ import runpod
 from rp_handler import run
 
 
-runpod.serverless.start({"handler": run})
+def handler(event):
+    return run(event)
+
+
+runpod.serverless.start({"handler": handler})
